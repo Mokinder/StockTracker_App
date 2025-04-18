@@ -26,11 +26,6 @@ public class UserController {
             return "Login Done successfully..!!"+ Request.getSession().getId();
         }
 
-//        @PostMapping("/login")
-//        public ResponseEntity<String> loginScreen(@RequestBody Users user){
-//            return new ResponseEntity<>(userService.verifyUser(user),HttpStatus.ACCEPTED);
-//        }
-
         @GetMapping("/Csrf-token")
         public CsrfToken getCsrfTolken(HttpServletRequest request){
             return (CsrfToken) request.getAttribute("_csrf");
@@ -73,22 +68,3 @@ public class UserController {
              }
         }
 }
-
-//        @PostMapping("/register")
-//        public String registerUser(@RequestBody Users user) {
-//            if (userService.findByEmail(user.getEmail()) != null) {
-//                return "Email already registered!";
-//            }
-//            userService.registerUser(user);
-//            return "User registered successfully!";
-//        }
-
-//        @PostMapping("/login")
-//        public String loginUser(@RequestBody Users user) {
-//            Users foundUser = userService.findByEmail(user.getEmail_id());
-//            if (foundUser != null && new BCryptPasswordEncoder().matches(user.getPassword(), foundUser.getPassword())) {
-//                return "Login successful!";
-//            } else {
-//                return "Invalid credentials!";
-//            }
-//        }
